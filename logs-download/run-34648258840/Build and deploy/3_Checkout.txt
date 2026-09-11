@@ -1,0 +1,74 @@
+﻿2026-09-11T21:13:29.5070445Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-11T21:13:29.5078328Z ##[group]Run actions/checkout@v4
+2026-09-11T21:13:29.5078738Z with:
+2026-09-11T21:13:29.5079016Z   repository: Rkhademi-Seagull/IT-Assets-Inven-Dashboard
+2026-09-11T21:13:29.5081874Z   token: ***
+2026-09-11T21:13:29.5082071Z   ssh-strict: true
+2026-09-11T21:13:29.5082277Z   ssh-user: git
+2026-09-11T21:13:29.5082492Z   persist-credentials: true
+2026-09-11T21:13:29.5082735Z   clean: true
+2026-09-11T21:13:29.5082950Z   sparse-checkout-cone-mode: true
+2026-09-11T21:13:29.5083204Z   fetch-depth: 1
+2026-09-11T21:13:29.5083412Z   fetch-tags: false
+2026-09-11T21:13:29.5083613Z   show-progress: true
+2026-09-11T21:13:29.5083815Z   lfs: false
+2026-09-11T21:13:29.5084004Z   submodules: false
+2026-09-11T21:13:29.5084259Z   set-safe-directory: true
+2026-09-11T21:13:29.5084497Z   allow-unsafe-pr-checkout: false
+2026-09-11T21:13:29.5084884Z ##[endgroup]
+2026-09-11T21:13:29.6041339Z Syncing repository: Rkhademi-Seagull/IT-Assets-Inven-Dashboard
+2026-09-11T21:13:29.6044118Z ##[group]Getting Git version info
+2026-09-11T21:13:29.6044992Z Working directory is '/home/runner/work/IT-Assets-Inven-Dashboard/IT-Assets-Inven-Dashboard'
+2026-09-11T21:13:29.6046182Z [command]/usr/bin/git version
+2026-09-11T21:13:29.6046639Z git version 2.55.0
+2026-09-11T21:13:29.6063252Z ##[endgroup]
+2026-09-11T21:13:29.6078453Z Temporarily overriding HOME='/home/runner/work/_temp/805c8547-9e5e-4425-83ae-b193e466d31a' before making global git config changes
+2026-09-11T21:13:29.6079937Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-11T21:13:29.6085483Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/IT-Assets-Inven-Dashboard/IT-Assets-Inven-Dashboard
+2026-09-11T21:13:29.6128345Z Deleting the contents of '/home/runner/work/IT-Assets-Inven-Dashboard/IT-Assets-Inven-Dashboard'
+2026-09-11T21:13:29.6133705Z ##[group]Initializing the repository
+2026-09-11T21:13:29.6137627Z [command]/usr/bin/git init /home/runner/work/IT-Assets-Inven-Dashboard/IT-Assets-Inven-Dashboard
+2026-09-11T21:13:29.6221013Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-11T21:13:29.6224224Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-11T21:13:29.6225452Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-11T21:13:29.6226224Z hint: call:
+2026-09-11T21:13:29.6226596Z hint:
+2026-09-11T21:13:29.6228376Z hint: 	git config --global init.defaultBranch <name>
+2026-09-11T21:13:29.6228988Z hint:
+2026-09-11T21:13:29.6229561Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-11T21:13:29.6230538Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-11T21:13:29.6231301Z hint:
+2026-09-11T21:13:29.6231688Z hint: 	git branch -m <name>
+2026-09-11T21:13:29.6232127Z hint:
+2026-09-11T21:13:29.6233038Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-11T21:13:29.6234390Z Initialized empty Git repository in /home/runner/work/IT-Assets-Inven-Dashboard/IT-Assets-Inven-Dashboard/.git/
+2026-09-11T21:13:29.6236595Z [command]/usr/bin/git remote add origin https://github.com/Rkhademi-Seagull/IT-Assets-Inven-Dashboard
+2026-09-11T21:13:29.6274578Z ##[endgroup]
+2026-09-11T21:13:29.6275323Z ##[group]Disabling automatic garbage collection
+2026-09-11T21:13:29.6278626Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-11T21:13:29.6303161Z ##[endgroup]
+2026-09-11T21:13:29.6303778Z ##[group]Setting up auth
+2026-09-11T21:13:29.6311246Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-11T21:13:29.6338641Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-11T21:13:29.6645205Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-11T21:13:29.6679413Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-11T21:13:29.6877525Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-11T21:13:29.6920365Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-11T21:13:29.7109808Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-11T21:13:29.7139963Z ##[endgroup]
+2026-09-11T21:13:29.7140404Z ##[group]Fetching the repository
+2026-09-11T21:13:29.7148784Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +5fe6ae5688b4a02978b1c56e414e880b2f9cf09c:refs/remotes/origin/main
+2026-09-11T21:13:30.2075731Z From https://github.com/Rkhademi-Seagull/IT-Assets-Inven-Dashboard
+2026-09-11T21:13:30.2076686Z  * [new ref]         5fe6ae5688b4a02978b1c56e414e880b2f9cf09c -> origin/main
+2026-09-11T21:13:30.2080549Z ##[endgroup]
+2026-09-11T21:13:30.2081020Z ##[group]Determining the checkout info
+2026-09-11T21:13:30.2082762Z ##[endgroup]
+2026-09-11T21:13:30.2088254Z [command]/usr/bin/git sparse-checkout disable
+2026-09-11T21:13:30.2124543Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-11T21:13:30.2148391Z ##[group]Checking out the ref
+2026-09-11T21:13:30.2153262Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-09-11T21:13:30.2297875Z Switched to a new branch 'main'
+2026-09-11T21:13:30.2301802Z branch 'main' set up to track 'origin/main'.
+2026-09-11T21:13:30.2306266Z ##[endgroup]
+2026-09-11T21:13:30.2340715Z [command]/usr/bin/git log -1 --format=%H
+2026-09-11T21:13:30.2360516Z 5fe6ae5688b4a02978b1c56e414e880b2f9cf09c

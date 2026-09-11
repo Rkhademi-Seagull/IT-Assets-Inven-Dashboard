@@ -1,0 +1,29 @@
+﻿2026-09-11T21:13:42.0748804Z ##[group]Run Azure/static-web-apps-deploy@v1
+2026-09-11T21:13:42.0749115Z with:
+2026-09-11T21:13:42.0749834Z   azure_static_web_apps_api_token: ***
+2026-09-11T21:13:42.0752516Z   repo_token: ***
+2026-09-11T21:13:42.0752728Z   action: upload
+2026-09-11T21:13:42.0752934Z   app_location: dist
+2026-09-11T21:13:42.0753149Z   app_artifact_location: .
+2026-09-11T21:13:42.0753390Z   skip_app_build: true
+2026-09-11T21:13:42.0753601Z ##[endgroup]
+2026-09-11T21:13:42.0851646Z ##[command]/usr/bin/docker run --name ce1e072c19dc879b1e42ffb840408be0e9153c_dc328f --label ce1e07 --workdir /github/workspace --rm -e "INPUT_AZURE_STATIC_WEB_APPS_API_TOKEN" -e "INPUT_REPO_TOKEN" -e "INPUT_ACTION" -e "INPUT_APP_LOCATION" -e "INPUT_API_LOCATION" -e "INPUT_APP_ARTIFACT_LOCATION" -e "INPUT_SKIP_APP_BUILD" -e "INPUT_API_BUILD_COMMAND" -e "INPUT_OUTPUT_LOCATION" -e "INPUT_APP_BUILD_COMMAND" -e "INPUT_ROUTES_LOCATION" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "GITHUB_ARTIFACTS" -e "GITHUB_ARTIFACTS_LIST" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_RESULTS_URL" -e "ACTIONS_CACHE_MODE" -e "ACTIONS_ORCHESTRATION_ID" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp":"/github/runner_temp" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/IT-Assets-Inven-Dashboard/IT-Assets-Inven-Dashboard":"/github/workspace" ce1e07:2c19dc879b1e42ffb840408be0e9153c
+2026-09-11T21:13:43.3017489Z DeploymentId: 13b022b5-1d9e-411a-a6d5-cca1bb72cdea
+2026-09-11T21:13:43.3017991Z 
+2026-09-11T21:13:43.4041021Z [37mTry to validate location at: '/github/workspace/dist'.[0m
+2026-09-11T21:13:43.4048060Z [37mApp Directory Location: 'dist' was found.[0m
+2026-09-11T21:13:43.4049142Z [37mTry to validate location at: '/github/workspace/swa-db-connections'.[0m
+2026-09-11T21:13:43.4051117Z [37mLooking for event info[0m
+2026-09-11T21:13:43.9725683Z [37mSkipping step to build /github/workspace/dist with Oryx[0m
+2026-09-11T21:13:43.9803432Z [37mNo Api directory specified. Azure Functions will not be created.[0m
+2026-09-11T21:13:43.9956096Z [33mEither no Api directory was specified, or the specified directory was not found. Azure Functions will not be created.[0m
+2026-09-11T21:13:44.4385393Z [37mZipping App Artifacts[0m
+2026-09-11T21:13:44.4783309Z [37mDone Zipping App Artifacts[0m
+2026-09-11T21:13:44.4784346Z [37mUploading build artifacts.[0m
+2026-09-11T21:13:45.2382831Z [32mFinished Upload. Polling on deployment.[0m
+2026-09-11T21:13:45.7946233Z [37mStatus: InProgress. Time: 0.5539628(s)[0m
+2026-09-11T21:14:00.9679196Z [37mStatus: Succeeded. Time: 15.7295217(s)[0m
+2026-09-11T21:14:00.9689727Z [32mDeployment Complete :)[0m
+2026-09-11T21:14:00.9691008Z [32mVisit your site at: https://lively-forest-06cbc041e.5.azurestaticapps.net[0m
+2026-09-11T21:14:01.0135630Z [37mThanks for using Azure Static Web Apps![0m
+2026-09-11T21:14:01.0136763Z [37mExiting[0m

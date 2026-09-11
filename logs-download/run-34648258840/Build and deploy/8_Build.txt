@@ -1,0 +1,18 @@
+﻿2026-09-11T21:13:39.2361453Z ##[group]Run npm run build
+2026-09-11T21:13:39.2361721Z [36;1mnpm run build[0m
+2026-09-11T21:13:39.2380060Z shell: /usr/bin/bash -e {0}
+2026-09-11T21:13:39.2380329Z ##[endgroup]
+2026-09-11T21:13:39.3444470Z 
+2026-09-11T21:13:39.3445074Z > inventory-dashboard@1.0.0 build
+2026-09-11T21:13:39.3445467Z > tsc -b && vite build
+2026-09-11T21:13:39.3445611Z 
+2026-09-11T21:13:41.7818093Z [36mvite v8.3.0 [32mbuilding client environment for production...[36m[39m
+2026-09-11T21:13:41.7944916Z transforming...
+2026-09-11T21:13:41.9406528Z ✓ 2151 modules transformed.
+2026-09-11T21:13:41.9916168Z rendering chunks...
+2026-09-11T21:13:42.0497945Z computing gzip size...
+2026-09-11T21:13:42.0549267Z dist/index.html                   0.80 kB │ gzip:   0.42 kB
+2026-09-11T21:13:42.0549858Z dist/assets/index-BZWM0gjH.css   11.90 kB │ gzip:   3.58 kB
+2026-09-11T21:13:42.0550353Z dist/assets/index-BHe_rTk8.js   445.06 kB │ gzip: 150.61 kB
+2026-09-11T21:13:42.0550590Z 
+2026-09-11T21:13:42.0553233Z [32m✓ built in 272ms[39m

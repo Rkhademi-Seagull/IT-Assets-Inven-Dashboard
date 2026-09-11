@@ -1,0 +1,5 @@
+﻿2026-09-11T21:13:39.2276541Z ##[group]Run echo "Skipping tests in CI"
+2026-09-11T21:13:39.2276896Z [36;1mecho "Skipping tests in CI"[0m
+2026-09-11T21:13:39.2299059Z shell: /usr/bin/bash -e {0}
+2026-09-11T21:13:39.2299341Z ##[endgroup]
+2026-09-11T21:13:39.2339230Z Skipping tests in CI

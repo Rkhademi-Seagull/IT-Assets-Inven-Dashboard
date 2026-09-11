@@ -45,14 +45,33 @@ const mapPositions: Record<string, [number, number]> = {
 }
 
 function CoverageMap({ totals, groups, selectedRegion, onSelect }: { totals: Array<[string, number]>; groups?: { group: string; countries: string[] }[]; selectedRegion: string; onSelect: (region: string) => void }) {
-  const max = Math.max(...totals.map(([, total]) => total), 1)
+  // Determine which markers to show: if a group is selected, show that group + its countries; otherwise show only top-level groups
+  const displayMarkers = useMemo(() => {
+    if (!groups) return totals
+    const selectedGroup = groups.find((g) => g.group === selectedRegion)
+    if (selectedGroup) {
+      // Show group total and each country
+      return totals.filter(([name]) => name === selectedRegion || selectedGroup.countries.includes(name))
+    } else if (selectedRegion) {
+      // Single country selected: show only countries from its group and the group itself
+      for (const g of groups) {
+        if (g.countries.includes(selectedRegion)) {
+          return totals.filter(([name]) => name === g.group || g.countries.includes(name))
+        }
+      }
+    }
+    // No selection: show only top-level groups
+    return totals.filter(([name]) => groups.some((g) => g.group === name))
+  }, [totals, groups, selectedRegion])
+
+  const max = Math.max(...displayMarkers.map(([, total]) => total), 1)
   return <div className="coverage-layout">
     <div className="coverage-map" aria-label="Interactive world map showing aggregated inventory by region">
       <ComposableMap projection="geoMercator" projectionConfig={{ scale: 125 }} width={800} height={360}>
         <Geographies geography={worldMap as unknown as GeoJsonObject}>
           {({ geographies }) => geographies.map((geo) => <Geography key={geo.rsmKey} geography={geo} fill="#f8fbfc" stroke="#91aeb8" strokeWidth={0.45} />)}
         </Geographies>
-        {totals.map(([region, total]) => {
+        {displayMarkers.map(([region, total]) => {
           const position = mapPositions[region] ?? mapPositions.Unknown
           const size = 18 + (total / max) * 14
           return <Marker key={region} coordinates={position}>
@@ -70,12 +89,13 @@ function CoverageMap({ totals, groups, selectedRegion, onSelect }: { totals: Arr
       <div className="coverage-legend-heading"><MapPinned size={15} /><strong>Regional totals</strong></div>
       {groups ? groups.map((g) => <div key={g.group} className="legend-group">
         <button className={`legend-row ${selectedRegion === g.group ? 'selected' : ''}`} onClick={() => onSelect(g.group)}><span><i />{g.group}</span><strong>{(totals.find(t => t[0] === g.group)?.[1] ?? 0).toLocaleString()}</strong></button>
-        <div className="legend-children">{g.countries.map((c) => <button key={c} className={`legend-row child ${selectedRegion === c ? 'selected' : ''}`} onClick={() => onSelect(c)}><span>{c}</span><strong>{(totals.find(t => t[0] === c)?.[1] ?? 0).toLocaleString()}</strong></button>)}</div>
+        {selectedRegion === g.group && <div className="legend-children">{g.countries.map((c) => <button key={c} className={`legend-row child ${selectedRegion === c ? 'selected' : ''}`} onClick={() => onSelect(c)}><span>{c}</span><strong>{(totals.find(t => t[0] === c)?.[1] ?? 0).toLocaleString()}</strong></button>)}</div>}
       </div>) : totals.map(([region, total]) => <button key={region} className={`legend-row ${selectedRegion === region ? 'selected' : ''}`} onClick={() => onSelect(region)}><span><i />{region}</span><strong>{total.toLocaleString()}</strong></button>)}
       {!totals.length && <p className="muted">No regions match these filters.</p>}
     </div>
   </div>
 }
+
 
 function App() {
   const [assets, setAssets] = useState<Asset[]>([])
@@ -87,6 +107,7 @@ function App() {
   const [visibleColumns, setVisibleColumns] = useState<ColumnKey[]>([...columns])
   const [selected, setSelected] = useState<Asset | null>(null)
   const [showColumns, setShowColumns] = useState(false)
+  const [expandedMapGroup, setExpandedMapGroup] = useState<string | null>(null)
   const returnFocusRef = useRef<HTMLButtonElement | null>(null)
   const triggerRef = returnFocusRef
   const debouncedKeyword = useDebouncedValue(filters.keyword)
@@ -131,6 +152,20 @@ function App() {
   const updateFilter = (key: keyof FilterState, value: string) => { setFilters((current) => ({ ...current, [key]: value, ...(key === 'manufacturer' ? { model: '' } : {}) })); setPage(1) }
   const toggleColumn = (key: ColumnKey) => setVisibleColumns((current) => current.includes(key) ? current.filter((column) => column !== key) : [...current, key])
   const changeSort = (key: keyof Asset) => setSort((current) => ({ key, direction: current.key === key && current.direction === 'asc' ? 'desc' : 'asc' }))
+  
+  const handleMapSelection = (region: string) => {
+    const isGroup = regionGroups.some((g) => g.group === region)
+    if (isGroup) {
+      // Clicking a group: toggle expansion
+      setExpandedMapGroup(expandedMapGroup === region ? null : region)
+    } else {
+      // Clicking a country: expand its parent group
+      const parentGroup = regionGroups.find((g) => g.countries.includes(region))
+      if (parentGroup) {
+        setExpandedMapGroup(parentGroup.group)
+      }
+    }
+  }
 
   if (status === 'loading') return <div className="center-state"><div className="spinner" /><h1>Loading inventory</h1><p>Preparing normalized asset records...</p></div>
   if (status === 'error') return <div className="center-state error-state"><h1>Inventory unavailable</h1><p>{error}</p></div>
@@ -141,7 +176,7 @@ function App() {
       <section className="intro"><div><h2>Asset inventory</h2><p>Search, segment, and inspect the hardware estate across every operating region.</p></div><button className="button primary" onClick={() => exportAssets(filtered)}><Download size={16} /> Export filtered CSV</button></section>
       <section className="filter-panel" aria-label="Inventory filters"><div className="filter-heading"><div><Filter size={16} /><strong>Filter inventory</strong><span className="filter-count">{filtered.length.toLocaleString()} matching assets</span></div><button className="button ghost" onClick={() => { setFilters(EMPTY_FILTERS); setPage(1) }}><X size={14} /> Clear filters</button></div><div className="filter-grid"><label className="filter-field search-field"><span>Keyword search</span><div className="input-wrap"><Search size={15} /><input value={filters.keyword} onChange={(event) => updateFilter('keyword', event.target.value)} placeholder="ID, description, owner, serial, processor..." /></div></label><SelectFilter label="Manufacturer" value={filters.manufacturer} options={manufacturers} onChange={(value) => updateFilter('manufacturer', value)} /><SelectFilter label="Model" value={filters.model} options={modelOptions} onChange={(value) => updateFilter('model', value)} /><RegionSelect label="Region" value={filters.region} groups={regionGroups} onChange={(value) => updateFilter('region', value)} /><SelectFilter label="Category" value={filters.category} options={categories} onChange={(value) => updateFilter('category', value)} /><SelectFilter label="Assignment" value={filters.assignment} options={['Assigned', 'Unassigned']} onChange={(value) => updateFilter('assignment', value)} /><SelectFilter label="Warranty" value={filters.warranty} options={['Active', 'Expiring soon', 'Expired', 'Unknown']} onChange={(value) => updateFilter('warranty', value)} /></div></section>
       <section className="kpi-grid" aria-label="Inventory summary"><article className="kpi accent-blue"><span>Total assets</span><strong>{filtered.length.toLocaleString()}</strong><small>Across {regionTotals.length} regions</small></article><article className="kpi accent-green"><span>Assigned</span><strong>{assignedCount.toLocaleString()}</strong><small>{filtered.length ? Math.round(assignedCount / filtered.length * 100) : 0}% of filtered inventory</small></article><article className="kpi accent-orange"><span>Warranty attention</span><strong>{expiredCount.toLocaleString()}</strong><small>Expired coverage</small></article><article className="kpi accent-purple"><span>Manufacturers</span><strong>{new Set(filtered.map((asset) => asset.manufacturer)).size}</strong><small>Normalized suppliers</small></article></section>
-      <section className="region-section"><div className="section-title"><div><p className="eyebrow">REGION SNAPSHOT</p><h2>Inventory footprint</h2></div><span className="muted">Aggregated by region · click a marker to filter</span></div><CoverageMap totals={groupedTotals} groups={regionGroups} selectedRegion={filters.region} onSelect={(region) => updateFilter('region', filters.region === region ? '' : region)} /></section>
+      <section className="region-section"><div className="section-title"><div><p className="eyebrow">REGION SNAPSHOT</p><h2>Inventory footprint</h2></div><span className="muted">Aggregated by region · click a marker to filter</span></div><CoverageMap totals={groupedTotals} groups={regionGroups} selectedRegion={expandedMapGroup || ''} onSelect={handleMapSelection} /></section>
       <section className="table-section"><div className="table-toolbar"><div><p className="eyebrow">INVENTORY REGISTER</p><h2>Assets <span>{sorted.length.toLocaleString()}</span></h2></div><div className="toolbar-actions"><div className="column-menu"><button className="button ghost" onClick={() => setShowColumns(!showColumns)}><SlidersHorizontal size={15} /> Columns</button>{showColumns && <div className="column-popover">{columns.map((column) => <label key={column}><input type="checkbox" checked={visibleColumns.includes(column)} onChange={() => toggleColumn(column)} />{labels[column]}</label>)}</div>}</div></div></div><div className="table-wrap"><table><caption className="sr-only">Inventory assets with normalized details and warranty statuses</caption><thead><tr>{visibleColumns.map((column) => <th key={column} scope="col"><button onClick={() => changeSort(column as keyof Asset)}>{labels[column]} {sort.key === column ? (sort.direction === 'asc' ? '↑' : '↓') : ''}</button></th>)}<th scope="col">View</th></tr></thead><tbody>{pageRows.length ? pageRows.map((asset) => <tr key={asset.rowId}><>{visibleColumns.map((column) => <td key={column}>{column === 'assetId' ? <strong className="asset-id">{asset.assetId}</strong> : column === 'warrantyStatus' ? <span className={`status status-${asset.warrantyStatus.toLowerCase().replace(' ', '-')}`}>{asset.warrantyStatus}</span> : column === 'category' ? <span className="category-pill">{asset.category}</span> : asset[column]}</td>)}</><td><button className="view-button" ref={triggerRef} onClick={() => setSelected(asset)} aria-label={`View ${asset.assetId}`}>→</button></td></tr>) : <tr><td className="empty-cell" colSpan={visibleColumns.length + 1}><LayoutGrid size={28} /><strong>No assets match these filters</strong><span>Clear a filter or try a broader keyword.</span></td></tr>}</tbody></table></div><div className="pagination"><span>Showing {sorted.length ? (page - 1) * PAGE_SIZE + 1 : 0}-{Math.min(page * PAGE_SIZE, sorted.length)} of {sorted.length.toLocaleString()}</span><div><button className="button ghost" disabled={page === 1} onClick={() => setPage(page - 1)}>Previous</button><span className="page-number">Page {page} of {pageCount}</span><button className="button ghost" disabled={page === pageCount} onClick={() => setPage(page + 1)}>Next</button></div></div></section>
     </main>
     <div className="sr-only" aria-live="polite">{filtered.length} assets match the current filters.</div>

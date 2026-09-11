@@ -1,0 +1,34 @@
+﻿2026-09-11T21:13:12.8717378Z Current runner version: '2.337.0'
+2026-09-11T21:13:12.8750055Z ##[group]Runner Image Provisioner
+2026-09-11T21:13:12.8751307Z Hosted Compute Agent
+2026-09-11T21:13:12.8752241Z Version: 20260828.587
+2026-09-11T21:13:12.8753228Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-11T21:13:12.8754438Z Build Date: 2026-08-28T16:44:25Z
+2026-09-11T21:13:12.8755482Z Worker ID: {5d6b2289-08a7-43a2-b320-25ceed78a2a8}
+2026-09-11T21:13:12.8756753Z Azure Region: centralus
+2026-09-11T21:13:12.8757799Z ##[endgroup]
+2026-09-11T21:13:12.8760090Z ##[group]Operating System
+2026-09-11T21:13:12.8761308Z Ubuntu
+2026-09-11T21:13:12.8762117Z 24.04.5
+2026-09-11T21:13:12.8763001Z LTS
+2026-09-11T21:13:12.8763724Z ##[endgroup]
+2026-09-11T21:13:12.8764970Z ##[group]Runner Image
+2026-09-11T21:13:12.8765953Z Image: ubuntu-24.04
+2026-09-11T21:13:12.8766925Z Version: 20260907.300.1
+2026-09-11T21:13:12.8768963Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260907.300/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-11T21:13:12.8771879Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260907.300
+2026-09-11T21:13:12.8773451Z ##[endgroup]
+2026-09-11T21:13:12.8775365Z ##[group]GITHUB_TOKEN Permissions
+2026-09-11T21:13:12.8778498Z Contents: read
+2026-09-11T21:13:12.8779422Z Metadata: read
+2026-09-11T21:13:12.8780380Z PullRequests: write
+2026-09-11T21:13:12.8781269Z ##[endgroup]
+2026-09-11T21:13:12.8784297Z Secret source: Actions
+2026-09-11T21:13:12.8785732Z Cache mode: write
+2026-09-11T21:13:12.8787401Z Prepare workflow directory
+2026-09-11T21:13:12.9139092Z Prepare all required actions
+2026-09-11T21:13:12.9209940Z Getting action download info
+2026-09-11T21:13:13.2154802Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-11T21:13:13.3181573Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-09-11T21:13:13.3901220Z Download action repository 'Azure/static-web-apps-deploy@v1' (SHA:1a947af9992250f3bc2e68ad0754c0b0c11566c9)
+2026-09-11T21:13:13.6873327Z Complete job name: Build and deploy

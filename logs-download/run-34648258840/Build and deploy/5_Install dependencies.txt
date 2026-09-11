@@ -1,0 +1,41 @@
+﻿2026-09-11T21:13:35.2777355Z ##[group]Run npm ci
+2026-09-11T21:13:35.2777679Z [36;1mnpm ci[0m
+2026-09-11T21:13:35.2804796Z shell: /usr/bin/bash -e {0}
+2026-09-11T21:13:35.2805098Z ##[endgroup]
+2026-09-11T21:13:35.6099416Z npm warn EBADENGINE Unsupported engine {
+2026-09-11T21:13:35.6100483Z npm warn EBADENGINE   package: '@asamuzakjp/css-color@6.0.7',
+2026-09-11T21:13:35.6101878Z npm warn EBADENGINE   required: { node: '^22.13.0 || >=24.0.0' },
+2026-09-11T21:13:35.6103036Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+2026-09-11T21:13:35.6103961Z npm warn EBADENGINE }
+2026-09-11T21:13:35.6104776Z npm warn EBADENGINE Unsupported engine {
+2026-09-11T21:13:35.6105851Z npm warn EBADENGINE   package: '@asamuzakjp/dom-selector@8.3.2',
+2026-09-11T21:13:35.6106955Z npm warn EBADENGINE   required: { node: '^22.13.0 || >=24.0.0' },
+2026-09-11T21:13:35.6108352Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+2026-09-11T21:13:35.6109171Z npm warn EBADENGINE }
+2026-09-11T21:13:35.6122297Z npm warn EBADENGINE Unsupported engine {
+2026-09-11T21:13:35.6122870Z npm warn EBADENGINE   package: 'jsdom@30.0.1',
+2026-09-11T21:13:35.6123359Z npm warn EBADENGINE   required: { node: '^22.22.2 || ^24.15.0 || >=26.0.0' },
+2026-09-11T21:13:35.6123903Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+2026-09-11T21:13:35.6124263Z npm warn EBADENGINE }
+2026-09-11T21:13:35.6129314Z npm warn EBADENGINE Unsupported engine {
+2026-09-11T21:13:35.6129978Z npm warn EBADENGINE   package: 'undici@8.10.2',
+2026-09-11T21:13:35.6130380Z npm warn EBADENGINE   required: { node: '>=22.19.0' },
+2026-09-11T21:13:35.6130853Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+2026-09-11T21:13:35.6131202Z npm warn EBADENGINE }
+2026-09-11T21:13:35.6133162Z npm warn EBADENGINE Unsupported engine {
+2026-09-11T21:13:35.6133711Z npm warn EBADENGINE   package: 'vitest@5.0.0',
+2026-09-11T21:13:35.6134172Z npm warn EBADENGINE   required: { node: '^22.12.0 || ^24.0.0 || >=26.0.0' },
+2026-09-11T21:13:35.6134678Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+2026-09-11T21:13:35.6135034Z npm warn EBADENGINE }
+2026-09-11T21:13:35.6135680Z npm warn EBADENGINE Unsupported engine {
+2026-09-11T21:13:35.6136511Z npm warn EBADENGINE   package: 'whatwg-url@17.1.1',
+2026-09-11T21:13:35.6136950Z npm warn EBADENGINE   required: { node: '^22.14.0 || >=24.0.0' },
+2026-09-11T21:13:35.6137521Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+2026-09-11T21:13:35.6137883Z npm warn EBADENGINE }
+2026-09-11T21:13:37.8829500Z 
+2026-09-11T21:13:37.8830484Z added 240 packages, and audited 241 packages in 3s
+2026-09-11T21:13:37.8831036Z 
+2026-09-11T21:13:37.8831533Z 53 packages are looking for funding
+2026-09-11T21:13:37.8832187Z   run `npm fund` for details
+2026-09-11T21:13:37.8857465Z 
+2026-09-11T21:13:37.8858167Z found 0 vulnerabilities

@@ -1,0 +1,363 @@
+﻿2026-09-11T21:13:12.8718268Z Current runner version: '2.337.0'
+2026-09-11T21:13:12.8750097Z ##[group]Runner Image Provisioner
+2026-09-11T21:13:12.8751319Z Hosted Compute Agent
+2026-09-11T21:13:12.8752252Z Version: 20260828.587
+2026-09-11T21:13:12.8753235Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-11T21:13:12.8754447Z Build Date: 2026-08-28T16:44:25Z
+2026-09-11T21:13:12.8755492Z Worker ID: {5d6b2289-08a7-43a2-b320-25ceed78a2a8}
+2026-09-11T21:13:12.8756767Z Azure Region: centralus
+2026-09-11T21:13:12.8757810Z ##[endgroup]
+2026-09-11T21:13:12.8760123Z ##[group]Operating System
+2026-09-11T21:13:12.8761322Z Ubuntu
+2026-09-11T21:13:12.8762127Z 24.04.5
+2026-09-11T21:13:12.8763010Z LTS
+2026-09-11T21:13:12.8763737Z ##[endgroup]
+2026-09-11T21:13:12.8764985Z ##[group]Runner Image
+2026-09-11T21:13:12.8765964Z Image: ubuntu-24.04
+2026-09-11T21:13:12.8766938Z Version: 20260907.300.1
+2026-09-11T21:13:12.8769196Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260907.300/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-11T21:13:12.8771894Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260907.300
+2026-09-11T21:13:12.8773466Z ##[endgroup]
+2026-09-11T21:13:12.8775386Z ##[group]GITHUB_TOKEN Permissions
+2026-09-11T21:13:12.8778529Z Contents: read
+2026-09-11T21:13:12.8779433Z Metadata: read
+2026-09-11T21:13:12.8780389Z PullRequests: write
+2026-09-11T21:13:12.8781276Z ##[endgroup]
+2026-09-11T21:13:12.8784329Z Secret source: Actions
+2026-09-11T21:13:12.8785753Z Cache mode: write
+2026-09-11T21:13:12.8787430Z Prepare workflow directory
+2026-09-11T21:13:12.9139129Z Prepare all required actions
+2026-09-11T21:13:12.9209973Z Getting action download info
+2026-09-11T21:13:13.2154834Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-11T21:13:13.3181593Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-09-11T21:13:13.3901269Z Download action repository 'Azure/static-web-apps-deploy@v1' (SHA:1a947af9992250f3bc2e68ad0754c0b0c11566c9)
+2026-09-11T21:13:13.6873357Z Complete job name: Build and deploy
+2026-09-11T21:13:13.7271431Z ##[group]Build container for action use: '/home/runner/work/_actions/Azure/static-web-apps-deploy/v1/Dockerfile'.
+2026-09-11T21:13:13.7357240Z ##[command]/usr/bin/docker build -t ce1e07:2c19dc879b1e42ffb840408be0e9153c -f "/home/runner/work/_actions/Azure/static-web-apps-deploy/v1/Dockerfile" "/home/runner/work/_actions/Azure/static-web-apps-deploy/v1"
+2026-09-11T21:13:14.1462357Z #0 building with "default" instance using docker driver
+2026-09-11T21:13:14.1463035Z 
+2026-09-11T21:13:14.1463351Z #1 [internal] load build definition from Dockerfile
+2026-09-11T21:13:14.1464005Z #1 transferring dockerfile: 160B done
+2026-09-11T21:13:14.1464584Z #1 DONE 0.0s
+2026-09-11T21:13:14.1464867Z 
+2026-09-11T21:13:14.1465267Z #2 [internal] load metadata for mcr.microsoft.com/appsvc/staticappsclient:stable
+2026-09-11T21:13:14.1466044Z #2 DONE 0.1s
+2026-09-11T21:13:14.2618558Z 
+2026-09-11T21:13:14.2619733Z #3 [internal] load .dockerignore
+2026-09-11T21:13:14.2621047Z #3 transferring context: 2B done
+2026-09-11T21:13:14.2622248Z #3 DONE 0.0s
+2026-09-11T21:13:14.2622684Z 
+2026-09-11T21:13:14.2623112Z #4 [internal] load build context
+2026-09-11T21:13:14.2624184Z #4 transferring context: 107B done
+2026-09-11T21:13:14.2625182Z #4 DONE 0.0s
+2026-09-11T21:13:14.2625626Z 
+2026-09-11T21:13:14.2627222Z #5 [1/2] FROM mcr.microsoft.com/appsvc/staticappsclient:stable@sha256:8ed8ea489d04d0636b5c47fbaa44f005975ab0d1f03eddc28014cdf7a061f7f4
+2026-09-11T21:13:14.2630245Z #5 resolve mcr.microsoft.com/appsvc/staticappsclient:stable@sha256:8ed8ea489d04d0636b5c47fbaa44f005975ab0d1f03eddc28014cdf7a061f7f4 done
+2026-09-11T21:13:14.2633225Z #5 sha256:40dc2f594569ada869542e14b3d9b19af523e5a664b2099fa5deee0fac6bf3ab 15.73MB / 62.25MB 0.1s
+2026-09-11T21:13:14.2635606Z #5 sha256:8ed8ea489d04d0636b5c47fbaa44f005975ab0d1f03eddc28014cdf7a061f7f4 2.88kB / 2.88kB done
+2026-09-11T21:13:14.2637991Z #5 sha256:9a57ac12a02944f33f4613c51086e29027d2a9fe416981d3254c55b723712a5c 15.73MB / 60.95MB 0.1s
+2026-09-11T21:13:14.2641015Z #5 sha256:2dadab5848b144c9b973125a744d7db13f89b1ae3e08bc06af4115e3ebb6885b 14.85kB / 14.85kB done
+2026-09-11T21:13:14.2645174Z #5 sha256:673965f86294fda2f405de92b30753f90cbd1097f62d6ace60fd5bc27f7dff2a 14.68MB / 16.97MB 0.1s
+2026-09-11T21:13:14.4600233Z #5 sha256:40dc2f594569ada869542e14b3d9b19af523e5a664b2099fa5deee0fac6bf3ab 60.82MB / 62.25MB 0.3s
+2026-09-11T21:13:14.4611151Z #5 sha256:9a57ac12a02944f33f4613c51086e29027d2a9fe416981d3254c55b723712a5c 60.95MB / 60.95MB 0.3s
+2026-09-11T21:13:14.4616007Z #5 sha256:673965f86294fda2f405de92b30753f90cbd1097f62d6ace60fd5bc27f7dff2a 16.97MB / 16.97MB 0.1s done
+2026-09-11T21:13:14.4736151Z #5 sha256:c7cdd48d6d211d1aca6edf8ae5ac69979ee52d0efbe788ad4073f5bda7763d5d 40.89MB / 221.00MB 0.3s
+2026-09-11T21:13:14.5915092Z #5 sha256:40dc2f594569ada869542e14b3d9b19af523e5a664b2099fa5deee0fac6bf3ab 62.25MB / 62.25MB 0.3s done
+2026-09-11T21:13:14.5919806Z #5 sha256:9a57ac12a02944f33f4613c51086e29027d2a9fe416981d3254c55b723712a5c 60.95MB / 60.95MB 0.3s done
+2026-09-11T21:13:14.5924462Z #5 sha256:c7cdd48d6d211d1aca6edf8ae5ac69979ee52d0efbe788ad4073f5bda7763d5d 65.01MB / 221.00MB 0.4s
+2026-09-11T21:13:14.5929057Z #5 extracting sha256:9a57ac12a02944f33f4613c51086e29027d2a9fe416981d3254c55b723712a5c 0.1s
+2026-09-11T21:13:14.5932852Z #5 sha256:89732bc7504122601f40269fc9ddfb70982e633ea9caf641ae45736f2846b004 39B / 39B 0.3s done
+2026-09-11T21:13:14.5935550Z #5 sha256:3b17442d31d185afee5af808ff7f34be99df67a06c11ef3819e3612d90105eba 11.53MB / 36.64MB 0.4s
+2026-09-11T21:13:14.5938992Z #5 sha256:2151d16d7dcca2946d0178aa0cd40138de91ad550daa6c0ce23cc8680cef44dc 1.83MB / 1.83MB 0.4s done
+2026-09-11T21:13:14.5942081Z #5 sha256:5580a4bf363d0ef29fbd6a90ba5891fac7d0a8cddd81435531b222462b9446cf 1.05MB / 79.23MB 0.4s
+2026-09-11T21:13:14.7010978Z #5 sha256:c7cdd48d6d211d1aca6edf8ae5ac69979ee52d0efbe788ad4073f5bda7763d5d 88.08MB / 221.00MB 0.5s
+2026-09-11T21:13:14.7015561Z #5 sha256:3b17442d31d185afee5af808ff7f34be99df67a06c11ef3819e3612d90105eba 36.64MB / 36.64MB 0.5s
+2026-09-11T21:13:14.7021048Z #5 sha256:5580a4bf363d0ef29fbd6a90ba5891fac7d0a8cddd81435531b222462b9446cf 24.12MB / 79.23MB 0.5s
+2026-09-11T21:13:14.8202418Z #5 sha256:c7cdd48d6d211d1aca6edf8ae5ac69979ee52d0efbe788ad4073f5bda7763d5d 114.29MB / 221.00MB 0.6s
+2026-09-11T21:13:14.8210975Z #5 sha256:3b17442d31d185afee5af808ff7f34be99df67a06c11ef3819e3612d90105eba 36.64MB / 36.64MB 0.5s done
+2026-09-11T21:13:14.8239467Z #5 sha256:5580a4bf363d0ef29fbd6a90ba5891fac7d0a8cddd81435531b222462b9446cf 47.19MB / 79.23MB 0.6s
+2026-09-11T21:13:14.8241769Z #5 sha256:54839ea777508dd630548e945f939d611fc491006c088552eb814f5245274d23 0B / 40.28MB 0.6s
+2026-09-11T21:13:14.8245050Z #5 sha256:28fac68ae10cfabc2b6e0950099b1f82f89d163713e7add747a7881f65df2107 733.27kB / 733.27kB 0.6s done
+2026-09-11T21:13:14.8247866Z #5 sha256:3175e53e95b1cb83067cc50762c4ffd867c26a65786c1c543a424020be5e04fa 123.28kB / 123.28kB 0.5s done
+2026-09-11T21:13:14.8250009Z #5 sha256:b63b9d8b66b5ff5212c0d72d09c4d3feadccf1db4ef01d419da27de677a7e768 1.31MB / 1.31MB 0.5s done
+2026-09-11T21:13:14.9321222Z #5 sha256:c7cdd48d6d211d1aca6edf8ae5ac69979ee52d0efbe788ad4073f5bda7763d5d 136.31MB / 221.00MB 0.7s
+2026-09-11T21:13:14.9323178Z #5 sha256:5580a4bf363d0ef29fbd6a90ba5891fac7d0a8cddd81435531b222462b9446cf 67.11MB / 79.23MB 0.7s
+2026-09-11T21:13:14.9324888Z #5 sha256:54839ea777508dd630548e945f939d611fc491006c088552eb814f5245274d23 25.17MB / 40.28MB 0.7s
+2026-09-11T21:13:15.0369367Z #5 sha256:c7cdd48d6d211d1aca6edf8ae5ac69979ee52d0efbe788ad4073f5bda7763d5d 159.38MB / 221.00MB 0.8s
+2026-09-11T21:13:15.0371939Z #5 sha256:5580a4bf363d0ef29fbd6a90ba5891fac7d0a8cddd81435531b222462b9446cf 79.23MB / 79.23MB 0.8s done
+2026-09-11T21:13:15.0375280Z #5 sha256:54839ea777508dd630548e945f939d611fc491006c088552eb814f5245274d23 40.28MB / 40.28MB 0.8s done
+2026-09-11T21:13:15.0378011Z #5 sha256:093d222846cbb3af8c495e5edc11036cc3764df86b2ea13eba45d8d633027fb8 0B / 176B 0.8s
+2026-09-11T21:13:15.0380044Z #5 sha256:e5b98d580c88cbc9c3209953cda9374569e5eb75690b57485ec7b2265f5c9604 0B / 176B 0.8s
+2026-09-11T21:13:15.1587741Z #5 sha256:c7cdd48d6d211d1aca6edf8ae5ac69979ee52d0efbe788ad4073f5bda7763d5d 210.76MB / 221.00MB 1.0s
+2026-09-11T21:13:15.1589485Z #5 sha256:093d222846cbb3af8c495e5edc11036cc3764df86b2ea13eba45d8d633027fb8 176B / 176B 0.8s done
+2026-09-11T21:13:15.1590175Z #5 sha256:e5b98d580c88cbc9c3209953cda9374569e5eb75690b57485ec7b2265f5c9604 176B / 176B 0.8s done
+2026-09-11T21:13:15.1590951Z #5 sha256:7364f3ef58a1fcc634a004f1a3f535e1da1400f1ffd64ac989c3d51117422f5e 37.75MB / 71.24MB 1.0s
+2026-09-11T21:13:15.3270661Z #5 sha256:7364f3ef58a1fcc634a004f1a3f535e1da1400f1ffd64ac989c3d51117422f5e 50.33MB / 71.24MB 1.1s
+2026-09-11T21:13:15.4590433Z #5 sha256:7364f3ef58a1fcc634a004f1a3f535e1da1400f1ffd64ac989c3d51117422f5e 67.11MB / 71.24MB 1.2s
+2026-09-11T21:13:15.5597789Z #5 sha256:7364f3ef58a1fcc634a004f1a3f535e1da1400f1ffd64ac989c3d51117422f5e 71.24MB / 71.24MB 1.4s
+2026-09-11T21:13:15.7398003Z #5 sha256:c7cdd48d6d211d1aca6edf8ae5ac69979ee52d0efbe788ad4073f5bda7763d5d 221.00MB / 221.00MB 1.5s done
+2026-09-11T21:13:15.7399616Z #5 sha256:7364f3ef58a1fcc634a004f1a3f535e1da1400f1ffd64ac989c3d51117422f5e 71.24MB / 71.24MB 1.5s done
+2026-09-11T21:13:16.5096324Z #5 extracting sha256:9a57ac12a02944f33f4613c51086e29027d2a9fe416981d3254c55b723712a5c 1.9s done
+2026-09-11T21:13:16.5097723Z #5 extracting sha256:673965f86294fda2f405de92b30753f90cbd1097f62d6ace60fd5bc27f7dff2a 0.1s
+2026-09-11T21:13:16.8451819Z #5 extracting sha256:673965f86294fda2f405de92b30753f90cbd1097f62d6ace60fd5bc27f7dff2a 0.3s done
+2026-09-11T21:13:16.9506053Z #5 extracting sha256:40dc2f594569ada869542e14b3d9b19af523e5a664b2099fa5deee0fac6bf3ab
+2026-09-11T21:13:18.6184317Z #5 extracting sha256:40dc2f594569ada869542e14b3d9b19af523e5a664b2099fa5deee0fac6bf3ab 1.5s done
+2026-09-11T21:13:18.6718399Z #5 extracting sha256:c7cdd48d6d211d1aca6edf8ae5ac69979ee52d0efbe788ad4073f5bda7763d5d
+2026-09-11T21:13:22.9160973Z #5 extracting sha256:c7cdd48d6d211d1aca6edf8ae5ac69979ee52d0efbe788ad4073f5bda7763d5d 4.1s done
+2026-09-11T21:13:23.8924177Z #5 extracting sha256:89732bc7504122601f40269fc9ddfb70982e633ea9caf641ae45736f2846b004
+2026-09-11T21:13:24.0476022Z #5 extracting sha256:89732bc7504122601f40269fc9ddfb70982e633ea9caf641ae45736f2846b004 done
+2026-09-11T21:13:24.0478734Z #5 extracting sha256:3b17442d31d185afee5af808ff7f34be99df67a06c11ef3819e3612d90105eba 0.1s
+2026-09-11T21:13:24.8905493Z #5 extracting sha256:3b17442d31d185afee5af808ff7f34be99df67a06c11ef3819e3612d90105eba 0.8s done
+2026-09-11T21:13:24.8906237Z #5 extracting sha256:2151d16d7dcca2946d0178aa0cd40138de91ad550daa6c0ce23cc8680cef44dc 0.1s done
+2026-09-11T21:13:25.0146166Z #5 extracting sha256:5580a4bf363d0ef29fbd6a90ba5891fac7d0a8cddd81435531b222462b9446cf 0.1s
+2026-09-11T21:13:25.8770403Z #5 extracting sha256:5580a4bf363d0ef29fbd6a90ba5891fac7d0a8cddd81435531b222462b9446cf 0.8s done
+2026-09-11T21:13:25.8771660Z #5 extracting sha256:3175e53e95b1cb83067cc50762c4ffd867c26a65786c1c543a424020be5e04fa
+2026-09-11T21:13:25.9838138Z #5 extracting sha256:3175e53e95b1cb83067cc50762c4ffd867c26a65786c1c543a424020be5e04fa done
+2026-09-11T21:13:25.9839628Z #5 extracting sha256:b63b9d8b66b5ff5212c0d72d09c4d3feadccf1db4ef01d419da27de677a7e768 0.0s done
+2026-09-11T21:13:25.9841096Z #5 extracting sha256:28fac68ae10cfabc2b6e0950099b1f82f89d163713e7add747a7881f65df2107 0.0s done
+2026-09-11T21:13:25.9842193Z #5 extracting sha256:54839ea777508dd630548e945f939d611fc491006c088552eb814f5245274d23
+2026-09-11T21:13:26.5955954Z #5 extracting sha256:54839ea777508dd630548e945f939d611fc491006c088552eb814f5245274d23 0.4s done
+2026-09-11T21:13:26.5959401Z #5 extracting sha256:093d222846cbb3af8c495e5edc11036cc3764df86b2ea13eba45d8d633027fb8 done
+2026-09-11T21:13:26.5960263Z #5 extracting sha256:e5b98d580c88cbc9c3209953cda9374569e5eb75690b57485ec7b2265f5c9604 done
+2026-09-11T21:13:26.5960970Z #5 extracting sha256:7364f3ef58a1fcc634a004f1a3f535e1da1400f1ffd64ac989c3d51117422f5e 0.1s
+2026-09-11T21:13:28.6426729Z #5 extracting sha256:7364f3ef58a1fcc634a004f1a3f535e1da1400f1ffd64ac989c3d51117422f5e 2.0s done
+2026-09-11T21:13:28.7539444Z #5 DONE 14.6s
+2026-09-11T21:13:28.9145752Z 
+2026-09-11T21:13:28.9146388Z #6 [2/2] COPY entrypoint.sh /entrypoint.sh
+2026-09-11T21:13:28.9146747Z #6 DONE 0.0s
+2026-09-11T21:13:28.9147116Z 
+2026-09-11T21:13:28.9147258Z #7 exporting to image
+2026-09-11T21:13:29.4614120Z #7 exporting layers
+2026-09-11T21:13:29.4614514Z #7 exporting layers 0.7s done
+2026-09-11T21:13:29.4615330Z #7 writing image sha256:115e4e1d2e24503151894d88730197b365af7863bebdf6d46b46a10c246f1b4e
+2026-09-11T21:13:29.4753311Z #7 writing image sha256:115e4e1d2e24503151894d88730197b365af7863bebdf6d46b46a10c246f1b4e done
+2026-09-11T21:13:29.4753983Z #7 naming to docker.io/library/ce1e07:2c19dc879b1e42ffb840408be0e9153c done
+2026-09-11T21:13:29.4754343Z #7 DONE 0.7s
+2026-09-11T21:13:29.4791393Z ##[endgroup]
+2026-09-11T21:13:29.5070458Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-11T21:13:29.5078342Z ##[group]Run actions/checkout@v4
+2026-09-11T21:13:29.5078742Z with:
+2026-09-11T21:13:29.5079020Z   repository: Rkhademi-Seagull/IT-Assets-Inven-Dashboard
+2026-09-11T21:13:29.5081877Z   token: ***
+2026-09-11T21:13:29.5082074Z   ssh-strict: true
+2026-09-11T21:13:29.5082279Z   ssh-user: git
+2026-09-11T21:13:29.5082494Z   persist-credentials: true
+2026-09-11T21:13:29.5082737Z   clean: true
+2026-09-11T21:13:29.5082953Z   sparse-checkout-cone-mode: true
+2026-09-11T21:13:29.5083207Z   fetch-depth: 1
+2026-09-11T21:13:29.5083415Z   fetch-tags: false
+2026-09-11T21:13:29.5083616Z   show-progress: true
+2026-09-11T21:13:29.5083818Z   lfs: false
+2026-09-11T21:13:29.5084053Z   submodules: false
+2026-09-11T21:13:29.5084261Z   set-safe-directory: true
+2026-09-11T21:13:29.5084499Z   allow-unsafe-pr-checkout: false
+2026-09-11T21:13:29.5084887Z ##[endgroup]
+2026-09-11T21:13:29.6041374Z Syncing repository: Rkhademi-Seagull/IT-Assets-Inven-Dashboard
+2026-09-11T21:13:29.6044143Z ##[group]Getting Git version info
+2026-09-11T21:13:29.6045001Z Working directory is '/home/runner/work/IT-Assets-Inven-Dashboard/IT-Assets-Inven-Dashboard'
+2026-09-11T21:13:29.6046189Z [command]/usr/bin/git version
+2026-09-11T21:13:29.6046644Z git version 2.55.0
+2026-09-11T21:13:29.6063271Z ##[endgroup]
+2026-09-11T21:13:29.6078473Z Temporarily overriding HOME='/home/runner/work/_temp/805c8547-9e5e-4425-83ae-b193e466d31a' before making global git config changes
+2026-09-11T21:13:29.6079945Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-11T21:13:29.6085538Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/IT-Assets-Inven-Dashboard/IT-Assets-Inven-Dashboard
+2026-09-11T21:13:29.6128361Z Deleting the contents of '/home/runner/work/IT-Assets-Inven-Dashboard/IT-Assets-Inven-Dashboard'
+2026-09-11T21:13:29.6133721Z ##[group]Initializing the repository
+2026-09-11T21:13:29.6137641Z [command]/usr/bin/git init /home/runner/work/IT-Assets-Inven-Dashboard/IT-Assets-Inven-Dashboard
+2026-09-11T21:13:29.6221034Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-11T21:13:29.6224248Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-11T21:13:29.6225464Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-11T21:13:29.6226229Z hint: call:
+2026-09-11T21:13:29.6226600Z hint:
+2026-09-11T21:13:29.6228382Z hint: 	git config --global init.defaultBranch <name>
+2026-09-11T21:13:29.6228992Z hint:
+2026-09-11T21:13:29.6229565Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-11T21:13:29.6230561Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-11T21:13:29.6231304Z hint:
+2026-09-11T21:13:29.6231692Z hint: 	git branch -m <name>
+2026-09-11T21:13:29.6232130Z hint:
+2026-09-11T21:13:29.6233041Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-11T21:13:29.6234394Z Initialized empty Git repository in /home/runner/work/IT-Assets-Inven-Dashboard/IT-Assets-Inven-Dashboard/.git/
+2026-09-11T21:13:29.6236599Z [command]/usr/bin/git remote add origin https://github.com/Rkhademi-Seagull/IT-Assets-Inven-Dashboard
+2026-09-11T21:13:29.6274594Z ##[endgroup]
+2026-09-11T21:13:29.6275328Z ##[group]Disabling automatic garbage collection
+2026-09-11T21:13:29.6278647Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-11T21:13:29.6303178Z ##[endgroup]
+2026-09-11T21:13:29.6303785Z ##[group]Setting up auth
+2026-09-11T21:13:29.6311264Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-11T21:13:29.6338928Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-11T21:13:29.6645234Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-11T21:13:29.6679449Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-11T21:13:29.6877566Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-11T21:13:29.6920426Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-11T21:13:29.7109841Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-11T21:13:29.7139990Z ##[endgroup]
+2026-09-11T21:13:29.7140438Z ##[group]Fetching the repository
+2026-09-11T21:13:29.7148790Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +5fe6ae5688b4a02978b1c56e414e880b2f9cf09c:refs/remotes/origin/main
+2026-09-11T21:13:30.2075768Z From https://github.com/Rkhademi-Seagull/IT-Assets-Inven-Dashboard
+2026-09-11T21:13:30.2076694Z  * [new ref]         5fe6ae5688b4a02978b1c56e414e880b2f9cf09c -> origin/main
+2026-09-11T21:13:30.2080590Z ##[endgroup]
+2026-09-11T21:13:30.2081024Z ##[group]Determining the checkout info
+2026-09-11T21:13:30.2082766Z ##[endgroup]
+2026-09-11T21:13:30.2088261Z [command]/usr/bin/git sparse-checkout disable
+2026-09-11T21:13:30.2124564Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-11T21:13:30.2148407Z ##[group]Checking out the ref
+2026-09-11T21:13:30.2153278Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-09-11T21:13:30.2297895Z Switched to a new branch 'main'
+2026-09-11T21:13:30.2301845Z branch 'main' set up to track 'origin/main'.
+2026-09-11T21:13:30.2306280Z ##[endgroup]
+2026-09-11T21:13:30.2340729Z [command]/usr/bin/git log -1 --format=%H
+2026-09-11T21:13:30.2360534Z 5fe6ae5688b4a02978b1c56e414e880b2f9cf09c
+2026-09-11T21:13:30.2587385Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-11T21:13:30.2589214Z ##[group]Run actions/setup-node@v4
+2026-09-11T21:13:30.2589462Z with:
+2026-09-11T21:13:30.2589657Z   node-version: 20
+2026-09-11T21:13:30.2589845Z   cache: npm
+2026-09-11T21:13:30.2590058Z   always-auth: false
+2026-09-11T21:13:30.2590263Z   check-latest: false
+2026-09-11T21:13:30.2592959Z   token: ***
+2026-09-11T21:13:30.2593154Z ##[endgroup]
+2026-09-11T21:13:30.3953038Z Attempting to download 20...
+2026-09-11T21:13:30.4107484Z (node:2465) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-11T21:13:30.4108586Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-11T21:13:31.1429293Z Acquiring 20.20.2 - x64 from https://github.com/actions/node-versions/releases/download/20.20.2-23521894959/node-20.20.2-linux-x64.tar.gz
+2026-09-11T21:13:31.6817795Z Extracting ...
+2026-09-11T21:13:31.6916233Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/6aa83b66-fdb4-400c-b1ea-dc8cc9ed185e -f /home/runner/work/_temp/10b05de6-3eed-4f49-91ed-d717be66e876
+2026-09-11T21:13:32.6315558Z Adding to the cache ...
+2026-09-11T21:13:33.8444762Z ##[group]Environment details
+2026-09-11T21:13:34.0516184Z node: v20.20.2
+2026-09-11T21:13:34.0516584Z npm: 10.8.2
+2026-09-11T21:13:34.0516808Z yarn: 1.22.22
+2026-09-11T21:13:34.0517574Z ##[endgroup]
+2026-09-11T21:13:34.0534538Z [command]/opt/hostedtoolcache/node/20.20.2/x64/bin/npm config get cache
+2026-09-11T21:13:34.1482446Z /home/runner/.npm
+2026-09-11T21:13:34.2948403Z Cache hit for: node-cache-Linux-x64-npm-c018fde7061e04290c08b62aa650310636938417ce0a56dd20c9f6a655100db0
+2026-09-11T21:13:34.3055757Z (node:2465) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-11T21:13:35.1958154Z Received 37156916 of 37156916 (100.0%), 48.1 MBs/sec
+2026-09-11T21:13:35.1958683Z Cache Size: ~35 MB (37156916 B)
+2026-09-11T21:13:35.1988087Z [command]/usr/bin/tar -xf /home/runner/work/_temp/5219d548-883e-4905-8be7-cc4caf2221dc/cache.tzst -P -C /home/runner/work/IT-Assets-Inven-Dashboard/IT-Assets-Inven-Dashboard --use-compress-program unzstd
+2026-09-11T21:13:35.2621971Z Cache restored successfully
+2026-09-11T21:13:35.2643508Z Cache restored from key: node-cache-Linux-x64-npm-c018fde7061e04290c08b62aa650310636938417ce0a56dd20c9f6a655100db0
+2026-09-11T21:13:35.2777371Z ##[group]Run npm ci
+2026-09-11T21:13:35.2777683Z [36;1mnpm ci[0m
+2026-09-11T21:13:35.2804806Z shell: /usr/bin/bash -e {0}
+2026-09-11T21:13:35.2805101Z ##[endgroup]
+2026-09-11T21:13:35.6099461Z npm warn EBADENGINE Unsupported engine {
+2026-09-11T21:13:35.6100493Z npm warn EBADENGINE   package: '@asamuzakjp/css-color@6.0.7',
+2026-09-11T21:13:35.6101887Z npm warn EBADENGINE   required: { node: '^22.13.0 || >=24.0.0' },
+2026-09-11T21:13:35.6103057Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+2026-09-11T21:13:35.6103968Z npm warn EBADENGINE }
+2026-09-11T21:13:35.6104782Z npm warn EBADENGINE Unsupported engine {
+2026-09-11T21:13:35.6105860Z npm warn EBADENGINE   package: '@asamuzakjp/dom-selector@8.3.2',
+2026-09-11T21:13:35.6106960Z npm warn EBADENGINE   required: { node: '^22.13.0 || >=24.0.0' },
+2026-09-11T21:13:35.6108359Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+2026-09-11T21:13:35.6109177Z npm warn EBADENGINE }
+2026-09-11T21:13:35.6122428Z npm warn EBADENGINE Unsupported engine {
+2026-09-11T21:13:35.6122874Z npm warn EBADENGINE   package: 'jsdom@30.0.1',
+2026-09-11T21:13:35.6123375Z npm warn EBADENGINE   required: { node: '^22.22.2 || ^24.15.0 || >=26.0.0' },
+2026-09-11T21:13:35.6123906Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+2026-09-11T21:13:35.6124266Z npm warn EBADENGINE }
+2026-09-11T21:13:35.6129323Z npm warn EBADENGINE Unsupported engine {
+2026-09-11T21:13:35.6129981Z npm warn EBADENGINE   package: 'undici@8.10.2',
+2026-09-11T21:13:35.6130382Z npm warn EBADENGINE   required: { node: '>=22.19.0' },
+2026-09-11T21:13:35.6130856Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+2026-09-11T21:13:35.6131205Z npm warn EBADENGINE }
+2026-09-11T21:13:35.6133168Z npm warn EBADENGINE Unsupported engine {
+2026-09-11T21:13:35.6133713Z npm warn EBADENGINE   package: 'vitest@5.0.0',
+2026-09-11T21:13:35.6134175Z npm warn EBADENGINE   required: { node: '^22.12.0 || ^24.0.0 || >=26.0.0' },
+2026-09-11T21:13:35.6134692Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+2026-09-11T21:13:35.6135037Z npm warn EBADENGINE }
+2026-09-11T21:13:35.6135683Z npm warn EBADENGINE Unsupported engine {
+2026-09-11T21:13:35.6136515Z npm warn EBADENGINE   package: 'whatwg-url@17.1.1',
+2026-09-11T21:13:35.6136953Z npm warn EBADENGINE   required: { node: '^22.14.0 || >=24.0.0' },
+2026-09-11T21:13:35.6137523Z npm warn EBADENGINE   current: { node: 'v20.20.2', npm: '10.8.2' }
+2026-09-11T21:13:35.6137886Z npm warn EBADENGINE }
+2026-09-11T21:13:37.8829562Z 
+2026-09-11T21:13:37.8830492Z added 240 packages, and audited 241 packages in 3s
+2026-09-11T21:13:37.8831040Z 
+2026-09-11T21:13:37.8831537Z 53 packages are looking for funding
+2026-09-11T21:13:37.8832191Z   run `npm fund` for details
+2026-09-11T21:13:37.8857495Z 
+2026-09-11T21:13:37.8858196Z found 0 vulnerabilities
+2026-09-11T21:13:37.9111467Z ##[group]Run npm run lint
+2026-09-11T21:13:37.9111967Z [36;1mnpm run lint[0m
+2026-09-11T21:13:37.9147315Z shell: /usr/bin/bash -e {0}
+2026-09-11T21:13:37.9147807Z ##[endgroup]
+2026-09-11T21:13:38.0205999Z 
+2026-09-11T21:13:38.0206654Z > inventory-dashboard@1.0.0 lint
+2026-09-11T21:13:38.0207151Z > eslint .
+2026-09-11T21:13:38.0207305Z 
+2026-09-11T21:13:39.2276554Z ##[group]Run echo "Skipping tests in CI"
+2026-09-11T21:13:39.2276898Z [36;1mecho "Skipping tests in CI"[0m
+2026-09-11T21:13:39.2299071Z shell: /usr/bin/bash -e {0}
+2026-09-11T21:13:39.2299344Z ##[endgroup]
+2026-09-11T21:13:39.2339241Z Skipping tests in CI
+2026-09-11T21:13:39.2361464Z ##[group]Run npm run build
+2026-09-11T21:13:39.2361724Z [36;1mnpm run build[0m
+2026-09-11T21:13:39.2380066Z shell: /usr/bin/bash -e {0}
+2026-09-11T21:13:39.2380332Z ##[endgroup]
+2026-09-11T21:13:39.3444518Z 
+2026-09-11T21:13:39.3445079Z > inventory-dashboard@1.0.0 build
+2026-09-11T21:13:39.3445470Z > tsc -b && vite build
+2026-09-11T21:13:39.3445614Z 
+2026-09-11T21:13:41.7818125Z [36mvite v8.3.0 [32mbuilding client environment for production...[36m[39m
+2026-09-11T21:13:41.7944954Z transforming...
+2026-09-11T21:13:41.9406568Z ✓ 2151 modules transformed.
+2026-09-11T21:13:41.9916201Z rendering chunks...
+2026-09-11T21:13:42.0497981Z computing gzip size...
+2026-09-11T21:13:42.0549290Z dist/index.html                   0.80 kB │ gzip:   0.42 kB
+2026-09-11T21:13:42.0549861Z dist/assets/index-BZWM0gjH.css   11.90 kB │ gzip:   3.58 kB
+2026-09-11T21:13:42.0550356Z dist/assets/index-BHe_rTk8.js   445.06 kB │ gzip: 150.61 kB
+2026-09-11T21:13:42.0550599Z 
+2026-09-11T21:13:42.0553340Z [32m✓ built in 272ms[39m
+2026-09-11T21:13:42.0748816Z ##[group]Run Azure/static-web-apps-deploy@v1
+2026-09-11T21:13:42.0749118Z with:
+2026-09-11T21:13:42.0749838Z   azure_static_web_apps_api_token: ***
+2026-09-11T21:13:42.0752519Z   repo_token: ***
+2026-09-11T21:13:42.0752730Z   action: upload
+2026-09-11T21:13:42.0752937Z   app_location: dist
+2026-09-11T21:13:42.0753152Z   app_artifact_location: .
+2026-09-11T21:13:42.0753392Z   skip_app_build: true
+2026-09-11T21:13:42.0753603Z ##[endgroup]
+2026-09-11T21:13:42.0851747Z ##[command]/usr/bin/docker run --name ce1e072c19dc879b1e42ffb840408be0e9153c_dc328f --label ce1e07 --workdir /github/workspace --rm -e "INPUT_AZURE_STATIC_WEB_APPS_API_TOKEN" -e "INPUT_REPO_TOKEN" -e "INPUT_ACTION" -e "INPUT_APP_LOCATION" -e "INPUT_API_LOCATION" -e "INPUT_APP_ARTIFACT_LOCATION" -e "INPUT_SKIP_APP_BUILD" -e "INPUT_API_BUILD_COMMAND" -e "INPUT_OUTPUT_LOCATION" -e "INPUT_APP_BUILD_COMMAND" -e "INPUT_ROUTES_LOCATION" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "GITHUB_ARTIFACTS" -e "GITHUB_ARTIFACTS_LIST" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_RESULTS_URL" -e "ACTIONS_CACHE_MODE" -e "ACTIONS_ORCHESTRATION_ID" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp":"/github/runner_temp" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/IT-Assets-Inven-Dashboard/IT-Assets-Inven-Dashboard":"/github/workspace" ce1e07:2c19dc879b1e42ffb840408be0e9153c
+2026-09-11T21:13:43.3017528Z DeploymentId: 13b022b5-1d9e-411a-a6d5-cca1bb72cdea
+2026-09-11T21:13:43.3017999Z 
+2026-09-11T21:13:43.4041057Z [37mTry to validate location at: '/github/workspace/dist'.[0m
+2026-09-11T21:13:43.4048077Z [37mApp Directory Location: 'dist' was found.[0m
+2026-09-11T21:13:43.4049148Z [37mTry to validate location at: '/github/workspace/swa-db-connections'.[0m
+2026-09-11T21:13:43.4051122Z [37mLooking for event info[0m
+2026-09-11T21:13:43.9725757Z [37mSkipping step to build /github/workspace/dist with Oryx[0m
+2026-09-11T21:13:43.9803457Z [37mNo Api directory specified. Azure Functions will not be created.[0m
+2026-09-11T21:13:43.9956109Z [33mEither no Api directory was specified, or the specified directory was not found. Azure Functions will not be created.[0m
+2026-09-11T21:13:44.4385426Z [37mZipping App Artifacts[0m
+2026-09-11T21:13:44.4783339Z [37mDone Zipping App Artifacts[0m
+2026-09-11T21:13:44.4784353Z [37mUploading build artifacts.[0m
+2026-09-11T21:13:45.2382883Z [32mFinished Upload. Polling on deployment.[0m
+2026-09-11T21:13:45.7946269Z [37mStatus: InProgress. Time: 0.5539628(s)[0m
+2026-09-11T21:14:00.9679232Z [37mStatus: Succeeded. Time: 15.7295217(s)[0m
+2026-09-11T21:14:00.9689742Z [32mDeployment Complete :)[0m
+2026-09-11T21:14:00.9691015Z [32mVisit your site at: https://lively-forest-06cbc041e.5.azurestaticapps.net[0m
+2026-09-11T21:14:01.0135658Z [37mThanks for using Azure Static Web Apps![0m
+2026-09-11T21:14:01.0136773Z [37mExiting[0m
+2026-09-11T21:14:01.0862681Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-11T21:14:01.0863843Z Post job cleanup.
+2026-09-11T21:14:01.2020227Z (node:2725) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-11T21:14:01.2020984Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-11T21:14:01.2024112Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-c018fde7061e04290c08b62aa650310636938417ce0a56dd20c9f6a655100db0, not saving cache.
+2026-09-11T21:14:01.2131576Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-11T21:14:01.2132770Z Post job cleanup.
+2026-09-11T21:14:01.2926565Z [command]/usr/bin/git version
+2026-09-11T21:14:01.2970090Z git version 2.55.0
+2026-09-11T21:14:01.3012530Z Temporarily overriding HOME='/home/runner/work/_temp/aa11aea6-7e0b-48f7-b855-1b78bda710c9' before making global git config changes
+2026-09-11T21:14:01.3014041Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-11T21:14:01.3019824Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/IT-Assets-Inven-Dashboard/IT-Assets-Inven-Dashboard
+2026-09-11T21:14:01.3054304Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-11T21:14:01.3085681Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-11T21:14:01.3289431Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-11T21:14:01.3314728Z http.https://github.com/.extraheader
+2026-09-11T21:14:01.3325576Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-11T21:14:01.3355493Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-11T21:14:01.3571440Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-11T21:14:01.3605281Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-11T21:14:01.3965270Z Cleaning up orphan processes
+2026-09-11T21:14:01.4228587Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
