@@ -156,13 +156,20 @@ function App() {
   const handleMapSelection = (region: string) => {
     const isGroup = regionGroups.some((g) => g.group === region)
     if (isGroup) {
-      // Clicking a group: toggle expansion
-      setExpandedMapGroup(expandedMapGroup === region ? null : region)
+      // Clicking a group: toggle expansion and filter
+      if (expandedMapGroup === region) {
+        setExpandedMapGroup(null)
+        updateFilter('region', '')
+      } else {
+        setExpandedMapGroup(region)
+        updateFilter('region', region)
+      }
     } else {
-      // Clicking a country: expand its parent group
+      // Clicking a country: expand its parent group and filter to this country
       const parentGroup = regionGroups.find((g) => g.countries.includes(region))
       if (parentGroup) {
         setExpandedMapGroup(parentGroup.group)
+        updateFilter('region', region)
       }
     }
   }
