@@ -40,11 +40,11 @@ function RegionSelect({ label, value, groups, onChange }: { label: string; value
 }
 
 const mapPositions: Record<string, [number, number]> = {
-  APAC: [139, 32], USA: [-100, 39], EMEA: [18, 44], 'Latin America': [-62, -14], Brazil: [-52, -10], Japan: [138, 36],
+  APAC: [139, 32], USA: [-100, 39], US: [-100, 39], EMEA: [18, 44], 'Latin America': [-62, -14], LATAM: [-62, -14], Brazil: [-52, -10], Japan: [138, 36],
   Mexico: [-102, 23], Global: [18, -26], Unknown: [28, -42]
 }
 
-function CoverageMap({ totals, selectedRegion, onSelect }: { totals: Array<[string, number]>; selectedRegion: string; onSelect: (region: string) => void }) {
+function CoverageMap({ totals, groups, selectedRegion, onSelect }: { totals: Array<[string, number]>; groups?: { group: string; countries: string[] }[]; selectedRegion: string; onSelect: (region: string) => void }) {
   const max = Math.max(...totals.map(([, total]) => total), 1)
   return <div className="coverage-layout">
     <div className="coverage-map" aria-label="Interactive world map showing aggregated inventory by region">
@@ -68,7 +68,10 @@ function CoverageMap({ totals, selectedRegion, onSelect }: { totals: Array<[stri
     </div>
     <div className="coverage-legend">
       <div className="coverage-legend-heading"><MapPinned size={15} /><strong>Regional totals</strong></div>
-      {totals.map(([region, total]) => <button key={region} className={`legend-row ${selectedRegion === region ? 'selected' : ''}`} onClick={() => onSelect(region)}><span><i />{region}</span><strong>{total.toLocaleString()}</strong></button>)}
+      {groups ? groups.map((g) => <div key={g.group} className="legend-group">
+        <button className={`legend-row ${selectedRegion === g.group ? 'selected' : ''}`} onClick={() => onSelect(g.group)}><span><i />{g.group}</span><strong>{(totals.find(t => t[0] === g.group)?.[1] ?? 0).toLocaleString()}</strong></button>
+        <div className="legend-children">{g.countries.map((c) => <button key={c} className={`legend-row child ${selectedRegion === c ? 'selected' : ''}`} onClick={() => onSelect(c)}><span>{c}</span><strong>{(totals.find(t => t[0] === c)?.[1] ?? 0).toLocaleString()}</strong></button>)}</div>
+      </div>) : totals.map(([region, total]) => <button key={region} className={`legend-row ${selectedRegion === region ? 'selected' : ''}`} onClick={() => onSelect(region)}><span><i />{region}</span><strong>{total.toLocaleString()}</strong></button>)}
       {!totals.length && <p className="muted">No regions match these filters.</p>}
     </div>
   </div>
@@ -105,6 +108,23 @@ function App() {
   const pageCount = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE))
   const pageRows = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
   const regionTotals = useMemo(() => Object.entries(filtered.reduce<Record<string, number>>((result, asset) => { result[asset.region] = (result[asset.region] ?? 0) + 1; return result }, {})).sort(([, a], [, b]) => b - a), [filtered])
+  // Build grouped totals for map: top-level groups sum their member countries
+  const groupedTotals = useMemo(() => {
+    const counts = Object.fromEntries(regionTotals)
+    const groups = regionGroups
+    const totals: Array<[string, number]> = []
+    for (const g of groups) {
+      const sum = g.countries.reduce((s, c) => s + (counts[c] ?? 0), 0)
+      if (sum > 0) totals.push([g.group, sum])
+      // also include country entries as their own totals so legend can show them
+      for (const c of g.countries) {
+        const cCount = counts[c] ?? 0
+        if (cCount > 0) totals.push([c, cCount])
+      }
+    }
+    return totals.sort(([, a], [, b]) => b - a)
+  }, [regionTotals, regionGroups])
+
   const assignedCount = filtered.filter((asset) => asset.assignedTo !== 'Unassigned').length
   const expiredCount = filtered.filter((asset) => asset.warrantyStatus === 'Expired').length
 
